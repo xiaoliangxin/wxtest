@@ -1,1 +1,21 @@
-1111
+<script src="https://res.wx.qq.com/open/js/cloudbase/1.1.0/cloud.js"></script>
+	<script>
+     uni.requestPayment({
+              provider: 'wxpay',
+              timeStamp: '1712325216',
+              nonceStr: 'EKGAKMBELZIGC7CE',
+              package: 'prepay_id=up_wx052153368246250f505c437a45cca70000',
+              signType: 'RSA',
+              paySign: 'PKMzN+gDRHB6OnzoZARpouG/rPKddsgUpPW1+vS+kdbEY6oBcEnYP983QBvDlCjdBxIAhg/P/jsY0Lzjj4c0FdNI42/U6qwenBPAj3Fe6BoBvU9bbuQylLq0ZHyQ4VLevB3G1p1B4BV5OKWEkmO0N+cKfVhN+JThZ0wyH60DvNcN84iuo3kxO9G/Eq8JviaygREjwfkaYQVhB5QCtieOI884gGys5T+VYtmn+uM/rIKIb8L26TlqTtEKKWdunsZxIbVTl/Yzx27fvd3iwbxFeeN4Ofwq5gDbrXjoRAvQW/R7MYyndCufr85Q/fBitEYpavnE24Ew1DsDlyNexBhLlA==',
+              success: function(res) {
+                that.popTiTle = '充值成功'
+                that.showPop = true
+                that.result = 'success'
+              },
+              fail: function(err) {
+                that.popTiTle = '充值失败'
+                that.showPop = true
+                that.result = 'fail'
+              }
+            });
+    </script>
