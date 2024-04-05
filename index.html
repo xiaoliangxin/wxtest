@@ -26,24 +26,16 @@
         <!-- built files will be auto injected -->
 	<button onclick="keke()">点击我</button>    
     </body>
-    
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
     <!-- 可更换，两个SDK都可使用最近更新的版本 -->
     <!-- 微信 JS-SDK 如果不需要兼容小程序，可以不引用 JS 文件。 两个文件同时引入时，微信的需要在前-->
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>  
     <!-- uni 的 SDK，必须引用。 -->  
     <script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
-    
-    <script>
-        //执行UniAppJSBridgeReady，通过后才可调用uni的api
-        document.addEventListener('UniAppJSBridgeReady', function() {
-            console.log(uni)
-            console.log('uni.webView', uni.webView)
-            uni.webView.getEnv(function(res) {
-                console.log('当前环境：' + JSON.stringify(res));
-            });
-        });
-	function keke(){
-            alert("点击");
+    <script>eruda.init();</script>
+    <script type="text/javascript">
+	    function keke(){
+                alert("点击");
 		uni.requestPayment({
 	              provider: 'wxpay',
 	              timeStamp: '1712325216',
@@ -63,4 +55,15 @@
 	              }
             	});
         }
+    </script>
+    <script>
+        //执行UniAppJSBridgeReady，通过后才可调用uni的api
+        document.addEventListener('UniAppJSBridgeReady', function() {
+            console.log(uni)
+            console.log('uni.webView', uni.webView)
+            uni.webView.getEnv(function(res) {
+                console.log('当前环境：' + JSON.stringify(res));
+            });
+        });
+	
     </script>
