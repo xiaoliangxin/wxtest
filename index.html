@@ -1,21 +1,45 @@
-<script src="https://res.wx.qq.com/open/js/cloudbase/1.1.0/cloud.js"></script>
-	<script>
-     wx.requestPayment({
-              provider: 'wxpay',
-              timeStamp: '1712325216',
-              nonceStr: 'EKGAKMBELZIGC7CE',
-              package: 'prepay_id=up_wx052153368246250f505c437a45cca70000',
-              signType: 'RSA',
-              paySign: 'PKMzN+gDRHB6OnzoZARpouG/rPKddsgUpPW1+vS+kdbEY6oBcEnYP983QBvDlCjdBxIAhg/P/jsY0Lzjj4c0FdNI42/U6qwenBPAj3Fe6BoBvU9bbuQylLq0ZHyQ4VLevB3G1p1B4BV5OKWEkmO0N+cKfVhN+JThZ0wyH60DvNcN84iuo3kxO9G/Eq8JviaygREjwfkaYQVhB5QCtieOI884gGys5T+VYtmn+uM/rIKIb8L26TlqTtEKKWdunsZxIbVTl/Yzx27fvd3iwbxFeeN4Ofwq5gDbrXjoRAvQW/R7MYyndCufr85Q/fBitEYpavnE24Ew1DsDlyNexBhLlA==',
-              success: function(res) {
-                that.popTiTle = '充值成功'
-                that.showPop = true
-                that.result = 'success'
-              },
-              fail: function(err) {
-                that.popTiTle = '充值失败'
-                that.showPop = true
-                that.result = 'fail'
-              }
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            <%= htmlWebpackPlugin.options.title %>
+        </title>
+        <!-- Open Graph data -->
+        <!-- <meta property="og:title" content="Title Here" /> -->
+        <!-- <meta property="og:url" content="http://www.example.com/" /> -->
+        <!-- <meta property="og:image" content="http://example.com/image.jpg" /> -->
+        <!-- <meta property="og:description" content="Description Here" /> -->
+        <script>
+            var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
+            document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+        </script>
+        <link rel="stylesheet" href="<%= BASE_URL %>static/index.<%= VUE_APP_INDEX_CSS_HASH %>.css" />
+    </head>
+    <body>
+        <noscript>
+            <strong>Please enable JavaScript to continue.</strong>
+        </noscript>
+        <div id="app"></div>
+        <!-- built files will be auto injected -->
+	    
+    </body>
+    
+    <!-- 可更换，两个SDK都可使用最近更新的版本 -->
+    <!-- 微信 JS-SDK 如果不需要兼容小程序，可以不引用 JS 文件。 两个文件同时引入时，微信的需要在前-->
+    <script type="text/javascript" src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>  
+    <!-- uni 的 SDK，必须引用。 -->  
+    <script type="text/javascript" src="https://js.cdn.aliyun.dcloud.net.cn/dev/uni-app/uni.webview.1.5.2.js"></script>
+    
+    <script>
+        //执行UniAppJSBridgeReady，通过后才可调用uni的api
+        document.addEventListener('UniAppJSBridgeReady', function() {
+            console.log(uni)
+            console.log('uni.webView', uni.webView)
+            uni.webView.getEnv(function(res) {
+                console.log('当前环境：' + JSON.stringify(res));
             });
+        });
     </script>
